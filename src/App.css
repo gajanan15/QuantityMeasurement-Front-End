@@ -7,6 +7,24 @@
   pointer-events: none;
 }
 
+.card{
+  Width: 600px;
+  height: 350px;
+}
+
+.field{
+  display:flex; 
+  flex-direction: row;
+  justify-content:space-around;
+  align-content: center;
+  margin-top: 7%;
+}
+
+/* .main{
+  width: 380px;
+} */
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
