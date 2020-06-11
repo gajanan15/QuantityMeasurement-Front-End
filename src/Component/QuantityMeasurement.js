@@ -23,6 +23,7 @@ export class quantityMeasurement extends Component {
       //  debugger
       Axios.get("http://localhost:8080/unit/type").then((response)=>{
         console.log("main unit    ",response);
+        // this.state.mainUnits = response.data;
         this.setState({
           mainUnits:response.data,
         })
@@ -37,6 +38,7 @@ export class quantityMeasurement extends Component {
         console.log("child comp ",unitsType)
       if(name== "Main Unit"){
         Axios.get(`http://localhost:8080/unit/type/${unitsType}`).then((response)=>{
+          console.log("response", response.data)
           console.log("sub unit      ",response.data.data);
           this.setState({
             subUnits:response.data,
@@ -70,7 +72,7 @@ export class quantityMeasurement extends Component {
       outputUnit:this.state.setSecondSubUnit,
       initialValue:event.target.value
     }
-      console.log("data       ",myData)
+      console.log(  "data       ",myData)
       Axios.post(`http://localhost:8080/unit/convert`,myData).then((response)=>{
         console.log("result    ",response.data.data);
         this.setState({
@@ -109,7 +111,7 @@ export class quantityMeasurement extends Component {
         <h1>Quantity Measurement</h1>  
           <Card className="card">
             <CardContent>
-              <UnitType name="Main Unit" width="450px" getSubUnit = {this.getSubUnit} mainUnits={this.state.mainUnits}/>
+              <UnitType name="Main Unit" width="500px" getSubUnit = {this.getSubUnit} mainUnits={this.state.mainUnits}/>
               <div className="field">
               <TextField id="outlined-basic"  label="Value" value={this.state.value1} onChange={this.getResultForFirstTextBox} variant="outlined" />
                 <div>=</div>

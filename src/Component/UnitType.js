@@ -13,6 +13,7 @@ class UnitType extends Component {
     }
 
     handleChange = (event) => {
+      console.log("Props is ====>",this.props)
       console.log("label name         ",this.props.name)
       this.setState({unitName: event.target.value});
       this.props.getSubUnit(event.target.value,this.props.name);
